@@ -1,0 +1,144 @@
+beacon> help cd
+Use: cd [目录]
+
+更改目标主机上的目录
+
+beacon> help clear
+Use: clear
+
+清空Beacon任务队列
+
+beacon> help download
+Use: download [file]
+
+下载一个文件，可以到 视图->下载列表 中看到下载成功的文件列表
+
+beacon> help shell
+Use: shell [命令] [参数]
+
+通过shell执行命令
+
+beacon> help exit
+Use: exit
+
+终止当前beacon会话
+
+beacon> help help
+Use: help [命令]
+
+显示命令帮助
+
+beacon> help socks
+Use: socks [stop]
+     socks [port]
+
+在指定端口上启动 SOCKS4a 服务器。 此服务器将中继
+通过此 SSH 会话建立连接。 （酷吗？是的。我想是的！）
+
+使用 socks stop 停止 SOCKS 服务器并终止现有连接。
+
+当父 Beacon 处于睡眠状态时，流量不会中继。 改变睡眠时间
+睡眠命令以减少延迟。
+
+注意：此 SSH 客户端不支持多个异步连接请求。
+每个传出连接都会阻塞此代理，直到连接失败或
+成功。 我不建议通过这个 SOCKS 代理推送端口扫描。
+
+beacon> help sleep
+Use: sleep [时间(秒)] <抖动>
+
+更改Beacon回连的间隔睡眠时间。 使用 "sleep 0" 命令可强制Beacon每秒多次回连（实时交互）
+
+beacon> help upload
+Use: upload [/本地绝对路径/file]
+
+上传一个文件到目标机器
+
+beacon> help pwd
+Use: pwd
+
+显示此 Beacon 的当前工作目录
+
+beacon> help rportfwd_local
+Use: rportfwd_local [绑定端口] [转发目的主机] [转发目的端口]
+     rportfwd_local stop [绑定端口]
+
+绑定目标主机上的指定端口。 当连接进来时，
+Cobalt Strike 将通过您的
+Cobalt Strike 客户端，并使用 Beacon+SSH 中继两个连接之间的流量。
+
+注意：您的 SSH 守护程序可能会强制此绑定端口仅在环回上侦听。 设置
+将 sshd_config 文件中的 GatewayPorts 选项设置为 yes 或客户端指定绕过
+这个。
+
+beacon> help rportfwd
+Use: rportfwd [绑定端口] [转发目的主机] [转发目的端口]
+     rportfwd stop [绑定端口]
+
+绑定目标主机上的指定端口。当目标主机的 [绑定端口] 被访问时，Cobalt Strike Teamserver将与
+[转发目的主机/端口] 建立连接，并使用Beacon在两个网络连接之间中继流量
+
+注意：您的 SSH 守护程序可能会强制此绑定端口仅在环回上侦听。 设置
+将 sshd_config 文件中的 GatewayPorts 选项设置为 yes 或客户端指定绕过
+这个。
+
+beacon> help sudo
+Use: sudo [密码] [命令]
+
+使用指定的密码通过 sudo 提升并运行指定的命令。
+
+beacon> help download
+Use: download [file]
+
+下载一个文件，可以到 视图->下载列表 中看到下载成功的文件列表
+
+beacon> help upload
+Use: upload [/本地绝对路径/file]
+
+上传一个文件到目标机器
+
+beacon> help connect
+Use: connect [目标]
+     connect [目标] [端口]
+
+连接TCP Beacon并建立控制通道。所有对于TCP Beacon的命令请求都将通过当前Beacon会话
+
+beacon> help unlink
+Use: unlink [ip地址]
+     unlink [ip地址] [pid]
+
+断开与SMB 命名管道或TCP Beacon的连接
+
+beacon> help history
+Use: history
+     history all
+     history [数字]
+
+显示历史命令记录
+
+使用不带[数字]参数的history命令会列出所有历史命令记录
+
+使用不带all参数的history命令会列出所有历史命令记录
+
+使用[数字]参数时只显示最近的指定条数记录
+
+beacon> help !
+Use: !!
+     ![数字]
+     ! [数字]
+     ![字符串]
+     ! [字符串]
+     !?[字符串]
+     ! ?[字符串]
+
+运行历史命令，历史命令记录可以使用history命令查看
+
+"!!" 命令执行最近的一条命令（也就是上一条命令），等同于执行 "!-1" 或 "! -1"
+
+"![数字]" 或 "! [数字]"运行一条指定的历史命令
+    当 [数字] 是正数时，会运行历史命令中的*正序*第 [数字] 条命令（比如 !1 会执行第一条命令）
+    当 [数字] 是负数时，会运行历史命令中的*倒序*第 [数字] 条命令（比如 !-1 会执行上一条命令）
+
+"![字符串]" 或 "! [字符串]" 会查找历史命令中最近一条以 [字符串] 开头的命令并执行
+
+"!?[字符串]" 或 "! ?[字符串]" 会查找历史命令中最近一条包含 [字符串] 的命令并执行

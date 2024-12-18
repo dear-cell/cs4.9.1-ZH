@@ -1,0 +1,20 @@
+cancel			取消正在进行的下载
+cd			更改目录
+clear			清除任务队列
+connect			通过 TCP 连接到 Beacon 对等体
+download			下载文件
+downloads			列出正在进行的文件下载
+exit			终止此会话
+help			帮助菜单
+history			显示命令历史
+note			为该会话分配注释
+pwd			打印当前目录
+rportfwd			设置一个反向端口转发
+rportfwd_local			通过 Cobalt Strike 客户端设置反向端口转发
+shell			通过shell执行命令
+sleep			设置父信标的休眠时间
+socks			启动/停止 SOCKS4a 服务器以中继流量
+sudo			通过 sudo 运行命令
+unlink			断开子 TCP Beacon 会话
+upload			上传文件
+!			从历史记录中运行命令
