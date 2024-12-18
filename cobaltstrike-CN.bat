@@ -1,0 +1,1 @@
+java -XX:ParallelGCThreads=4 -XX:+AggressiveHeap -XX:+UseParallelGC -javaagent:CSAgent.jar=CSAgent.properties -javaagent:uHook.jar -Duser.language=en -Dfile.encoding=utf-8 -jar cobaltstrike-client.jar
